@@ -1,0 +1,61 @@
+module top_module (
+	input clk,
+	input reset,
+	input [1:0] in,
+	output reg [1:0] out
+);
+
+	`define SA 5'b00001
+	`define SB 5'b00010
+	`define SC 5'b00100
+	`define SD 5'b01000
+	`define SE 5'b10000
+	
+	wire [4:0] state;
+	reg [4:0] next_state;
+	wire [4:0] next_state_reset;
+	
+	
+	assign next_state_reset = reset? `SA : next_state; //if reset, next_state = SA
+	
+	dflipflop #(5) dff1 (.in(next_state_reset), .clk(clk), .out(state)); 
+	
+	always @ (*) begin
+	
+		casex ({state, in})
+		{`SA, 2'b01}: next_state = `SB;	
+		{`SA, 2'b10}: next_state = `SE;	
+		{`SB, 2'b00}: next_state = `SC;
+		{`SC, 2'b11}: next_state = `SD;
+		{`SD, 2'b00}: next_state = `SA;
+		{`SD, 2'b01}: next_state = `SB;
+		{`SD, 2'b10}: next_state = `SC;
+		{`SE, 2'bxx}: next_state = `SD;
+		default: next_state = state; //if the condition for moving states not satisfied, stay at current state	
+		endcase
+		
+	end
+	
+	always @ (*) begin
+			case(state)
+			`SA: out = 2'b11;
+			`SB: out = 2'b00;
+			`SC: out = 2'b01;
+			`SD: out = 2'b10;
+			`SE: out = 2'b00;
+			endcase
+	end
+	
+endmodule		
+module dflipflop(in, clk, out);
+  
+    parameter p = 5 ;
+	input [p-1:0] in ;
+	input clk ;
+	output reg [p-1:0] out ;
+
+    always @ (posedge clk) begin 
+			out <= in; 
+	end
+
+endmodule

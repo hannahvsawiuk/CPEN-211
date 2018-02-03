@@ -1,0 +1,24 @@
+-- begin_signature
+-- RAM(data_width
+-- 16
+-- addr_width
+-- 3
+-- filename
+-- "data.txt")
+-- end_signature
+WIDTH=16;
+DEPTH=8;
+
+ADDRESS_RADIX=UNS;
+DATA_RADIX=BIN;
+
+CONTENT BEGIN
+	7 :	XXXXXXXXXXXXXXXX;
+	6 :	XXXXXXXXXXXXXXXX;
+	5 :	XXXXXXXXXXXXXXXX;
+	4 :	XXXXXXXXXXXXXXXX;
+	3 :	XXXXXXXXXXXXXXXX;
+	2 :	1010000101001000;
+	1 :	1101000100000010;
+	0 :	1101000000000111;
+END;

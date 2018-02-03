@@ -1,0 +1,17 @@
+Analysis & Synthesis Status : Successful - Thu Oct 27 21:17:24 2016
+Quartus II 64-Bit Version : 15.0.2 Build 153 07/15/2015 SJ Full Version
+Revision Name : lab6_top
+Top-level Entity Name : lab6_top
+Family : Cyclone V
+Logic utilization (in ALMs) : N/A
+Total registers : 201
+Total pins : 56
+Total virtual pins : 0
+Total block memory bits : 128
+Total DSP Blocks : 0
+Total HSSI RX PCSs : 0
+Total HSSI PMA RX Deserializers : 0
+Total HSSI TX PCSs : 0
+Total HSSI PMA TX Serializers : 0
+Total PLLs : 0
+Total DLLs : 0

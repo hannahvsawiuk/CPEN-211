@@ -1,0 +1,34 @@
+wins
+-row
+	->876
+	->543
+	->210
+-column
+	->852
+	->741
+	->630
+-diagonal
+	->840
+	->246
+
+
+not wins:
+
+rows:
+
+8,7, ~6 
+
+	not_win_line(0) = ain[8] & ain[7] & ~ ain[6] | bin[8] & bin[7] & ~ bin[6]; 
+
+5,4, ~3
+
+	not_win_line(1) = ain[5] & ain[4] & ~ ain[3] | bin[5] & bin[4] & ~ bin[3]; 
+columns:
+
+8,5, ~2
+	not_win_line(3) = ain[8] & ain[2] & ~ ain[2] | bin[8] & bin[5] & ~ bin[2]; 
+7,4, ~1
+	not_win_line(4) = ain[7] & ain[4] & ~ ain[1] | bin[7] & bin[4] & ~ bin[1]; 
+
+diagonal:
+8,4, ~0	not_win_line(6) = ain[8] & ain[4] & ~ ain[0] | bin[8] & bin[4] & ~ bin[3]; 
